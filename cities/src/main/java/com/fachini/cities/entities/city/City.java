@@ -2,6 +2,7 @@ package com.fachini.cities.entities.city;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import com.fachini.cities.entities.mesoregion.Mesoregion;
@@ -30,9 +31,11 @@ public class City {
 	private String alternativeNames;
 
 	@ManyToOne
+	@JoinColumn(columnDefinition = "bigint", name="microregion_id")
 	private Microregion microregion;
 
 	@ManyToOne
+	@JoinColumn(columnDefinition = "bigint", name="mesoregion_id")
 	private Mesoregion mesoregion;
 
 	public Long getIbgeId() {
